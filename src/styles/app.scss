@@ -3,12 +3,23 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  font-family: "Lato", sans-serif;
+}
+h3,
+h4 {
+  font-weight: 400;
+  color: rgb(100, 100, 100);
+}
+
 h1,
 h2,
 h3 {
   color: rgb(54, 54, 54);
 }
-
+h1 {
+  text-align: center;
+}
 @mixin flex($direction, $justify, $align) {
   display: flex;
   flex-direction: $direction;
@@ -18,3 +29,4 @@ h3 {
 
 @import "./player";
 @import "song";
+@import "library";
