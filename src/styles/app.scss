@@ -3,3 +3,18 @@
   padding: 0;
   box-sizing: border-box;
 }
+h1,
+h2,
+h3 {
+  color: rgb(54, 54, 54);
+}
+
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@import "./player";
+@import "song";
