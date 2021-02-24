@@ -36,13 +36,28 @@ function App() {
       animationPercentage: animation,
     });
   };
-
+  const activeLibraryHandler = (nextPrev) => {
+    const newSongs = songs.map((eachSong) => {
+      if (eachSong.id === nextPrev.id) {
+        return {
+          ...eachSong,
+          active: true,
+        };
+      } else {
+        return {
+          ...eachSong,
+          active: false,
+        };
+      }
+    });
+    setSongs(newSongs);
+  };
   const onEndHandler = async () => {
     const currentIndex = songs.findIndex(
       (eachSong) => eachSong.id === currentSong.id
     );
     await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
-
+    activeLibraryHandler(songs[(currentIndex + 1) % songs.length]);
     if (isPlaying) {
       audioRef.current.play();
     }
@@ -50,7 +65,7 @@ function App() {
   return (
     <div className={`App ${libraryStatus ? "library-active" : ""} `}>
       <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
-      <Song currentSong={currentSong} />
+      <Song currentSong={currentSong} isPlaying={isPlaying} />
       <Player
         currentSong={currentSong}
         setIsPlaying={setIsPlaying}
@@ -61,6 +76,7 @@ function App() {
         songs={songs}
         setCurrentSong={setCurrentSong}
         setSongs={setSongs}
+        activeLibraryHandler={activeLibraryHandler}
       />
       <Library
         songs={songs}

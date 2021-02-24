@@ -1,10 +1,19 @@
 .song-container {
   min-height: 60vh;
   @include flex(column, center, center);
+  //transition: all 0.5s ease;
   img {
     width: 20%;
     border-radius: 50%;
   }
+  .img-active {
+    width: 20%;
+    border-radius: 50%;
+    animation: rotateImage 5s infinite linear;
+    transform-origin: center;
+    transform-box: fill-box;
+  }
+
   h2 {
     padding: 3rem 1rem 1rem 1rem;
   }
@@ -18,5 +27,14 @@
     img {
       width: 60%;
     }
+  }
+}
+
+@keyframes rotateImage {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
   }
 }

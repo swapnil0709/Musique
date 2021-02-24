@@ -17,6 +17,7 @@ const Player = ({
   songs,
   setCurrentSong,
   setSongs,
+  activeLibraryHandler,
 }) => {
   const playSongHandler = () => {
     if (isPlaying) {
@@ -49,7 +50,9 @@ const Player = ({
       await setCurrentSong(
         songs[(currentIndex - 1 + songs.length) % songs.length]
       );
-      activeLibraryHandler((currentIndex - 1 + songs.length) % songs.length);
+      activeLibraryHandler(
+        songs[(currentIndex - 1 + songs.length) % songs.length]
+      );
     }
     if (isPlaying) {
       audioRef.current.play();
@@ -59,22 +62,22 @@ const Player = ({
   const trackAnim = {
     transform: `translate(${songInfo.animationPercentage}%)`,
   };
-  const activeLibraryHandler = (nextPrev) => {
-    const newSongs = songs.map((eachSong) => {
-      if (eachSong.id === nextPrev.id) {
-        return {
-          ...eachSong,
-          active: true,
-        };
-      } else {
-        return {
-          ...eachSong,
-          active: false,
-        };
-      }
-    });
-    setSongs(newSongs);
-  };
+  // const activeLibraryHandler = (nextPrev) => {
+  //   const newSongs = songs.map((eachSong) => {
+  //     if (eachSong.id === nextPrev.id) {
+  //       return {
+  //         ...eachSong,
+  //         active: true,
+  //       };
+  //     } else {
+  //       return {
+  //         ...eachSong,
+  //         active: false,
+  //       };
+  //     }
+  //   });
+  //   setSongs(newSongs);
+  // };
   return (
     <div className="player">
       <div className="time-control">
