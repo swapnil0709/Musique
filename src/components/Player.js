@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlay,
@@ -44,19 +44,24 @@ const Player = ({
     );
     if (direction === "skip-forward") {
       await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+      activeLibraryHandler(songs[(currentIndex + 1) % songs.length]);
     } else {
       await setCurrentSong(
         songs[(currentIndex - 1 + songs.length) % songs.length]
       );
+      activeLibraryHandler((currentIndex - 1 + songs.length) % songs.length);
     }
     if (isPlaying) {
       audioRef.current.play();
     }
   };
 
-  useEffect(() => {
+  const trackAnim = {
+    transform: `translate(${songInfo.animationPercentage}%)`,
+  };
+  const activeLibraryHandler = (nextPrev) => {
     const newSongs = songs.map((eachSong) => {
-      if (eachSong.id === currentSong.id) {
+      if (eachSong.id === nextPrev.id) {
         return {
           ...eachSong,
           active: true,
@@ -69,12 +74,7 @@ const Player = ({
       }
     });
     setSongs(newSongs);
-  }, [currentSong]);
-
-  const trackAnim = {
-    transform: `translate(${songInfo.animationPercentage}%)`,
   };
-
   return (
     <div className="player">
       <div className="time-control">
