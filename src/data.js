@@ -68,7 +68,7 @@ function chillHop() {
         "https://chillhop.com/wp-content/uploads/2020/11/8a0c857ddad531279d0757f5362380a6837b1b69-1024x1024.jpg",
       artist: "Stan Forebee, The Field Tapes, azula, Francis",
       audio: "https://mp3.chillhop.com/serve.php/?mp3=11245",
-      color: ["#BAC487", "#DBE8DF"],
+      color: ["#242845", "#DBE8DF"],
       id: uuidv4(),
       active: false,
     },
