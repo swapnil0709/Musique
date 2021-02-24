@@ -4,6 +4,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Project Preview:
+
+![library](https://github.com/swapnil0709/Musique/blob/master/snaps/library.png)
+
+![player](https://github.com/swapnil0709/Musique/blob/master/snaps/musique.png)
+
 ## Available Scripts
 
 In the project directory, you can run:
