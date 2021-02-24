@@ -28,6 +28,13 @@
       width: 60%;
     }
   }
+  .img-active {
+    width: 60%;
+    border-radius: 50%;
+    animation: rotateImage 5s infinite linear;
+    transform-origin: center;
+    transform-box: fill-box;
+  }
 }
 
 @keyframes rotateImage {
