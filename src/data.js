@@ -32,7 +32,7 @@ function chillHop() {
       active: false,
     },
     {
-      name: "Nightfall",
+      name: "Twilight",
       cover:
         "https://chillhop.com/wp-content/uploads/2020/07/ef95e219a44869318b7806e9f0f794a1f9c451e4-1024x1024.jpg",
       artist: "Aiguille",

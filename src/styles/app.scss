@@ -17,9 +17,7 @@ h2,
 h3 {
   color: rgb(54, 54, 54);
 }
-h1 {
-  text-align: center;
-}
+
 @mixin flex($direction, $justify, $align) {
   display: flex;
   flex-direction: $direction;
@@ -30,3 +28,4 @@ h1 {
 @import "./player";
 @import "song";
 @import "library";
+@import "nav";

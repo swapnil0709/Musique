@@ -6,6 +6,10 @@
   height: 100%;
   background: white;
   overflow: scroll;
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: all 0.5s ease;
+
   box-shadow: 2px 2px 50px rgb(182, 179, 179);
   .library-header {
     padding: 2rem;
@@ -54,4 +58,9 @@
 
 .selected {
   background: rgb(163, 158, 233);
+}
+
+.active-library {
+  transform: translateX(0%);
+  opacity: 1;
 }
